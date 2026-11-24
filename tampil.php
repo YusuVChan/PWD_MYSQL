@@ -22,8 +22,13 @@ $jumlah = mysqli_num_rows($hasil);
     <main class="form-card">
         <header>
             <h2>Daftar Anggota Perpustakaan</h2>
-            <p>Diurutukan berdasarkan ID</p>
+            <p>Diurutukan berdasarkan anggota terbaru</p>
         </header>
+        <nav>
+            <form action="dashboard.php">
+                <button type="submit" class="btn-submit">Kembali ke dashboard</button>
+            </form>
+        </nav>
         <div class="bungkus-tabel">
             <table>
                 <tr>
