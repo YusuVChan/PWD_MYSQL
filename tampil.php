@@ -19,13 +19,13 @@ $jumlah = mysqli_num_rows($hasil);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="form-card form-card-lebar">
+    <main class="form-card">
         <header>
             <h2>Daftar Anggota Perpustakaan</h2>
             <p>Diurutukan berdasarkan ID</p>
         </header>
-        <div class="tabel-wrap">
-            <table class="tabel-data">
+        <div class="bungkus-tabel">
+            <table>
                 <tr>
                     <th>
                         No_Anggota

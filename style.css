@@ -237,55 +237,68 @@ textarea.form-control {
   background-color: #4B2E2B;
 }
 
-/* ===== Tambahan untuk tampil.php (tabel data) ===== */
-
-/* Kartu dilebarkan karena tabel punya 6 kolom (aslinya max 480px) */
-.form-card.form-card-lebar {
-  max-width: 960px;
+/* Perlebar wadah khusus jika memuat tabel agar tidak sempit */
+.form-card:has(table) {
+  max-width: 1120px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Subjudul ada di dalam <header>, jadi tidak kena selector ".form-card > p" */
-.form-card header p {
-  color: #8C5A3C;
-  font-size: 14px;
-  margin-bottom: 24px;
-}
-
-.tabel-wrap {
+/* Pembungkus tabel agar responsif / bisa scroll horizontal jika layar sempit */
+.bungkus-tabel {
   width: 100%;
   overflow-x: auto;
-  border: 1px solid rgba(192, 133, 82, 0.35);
+  margin-top: 16px;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
+  background-color: #ffffff;
 }
 
-.tabel-data {
+/* Gaya utama tabel */
+.bungkus-tabel table {
   width: 100%;
-  min-width: 640px;
   border-collapse: collapse;
   font-size: 14px;
+  line-height: 1.5;
+  color: #1f2937;
 }
 
-.tabel-data th {
-  background-color: #8C5A3C;
-  color: #FFF8F0;
-  text-align: left;
+/* Header tabel */
+.bungkus-tabel th {
+  background-color: #f9fafb;
+  color: #111827;
   font-weight: 600;
-  padding: 11px 14px;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid #e5e7eb;
   white-space: nowrap;
 }
 
-.tabel-data td {
-  color: #4B2E2B;
-  padding: 11px 14px;
+/* Sel data tabel */
+.bungkus-tabel td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f3f4f6;
   vertical-align: top;
-  border-top: 1px solid rgba(192, 133, 82, 0.25);
+  overflow-wrap: anywhere;
 }
 
-/* Baris selang-seling (baris 1 = header berisi <th>, jadi tidak terpengaruh) */
-.tabel-data tr:nth-child(odd) td {
-  background-color: #FFF8F0;
+/* Kolom alamat diberi lebar lebih proporsional agar tidak terlalu tinggi ke bawah */
+.bungkus-tabel th:last-child,
+.bungkus-tabel td:last-child {
+  min-width: 220px;
 }
 
-.tabel-data tr:hover td {
-  background-color: rgba(192, 133, 82, 0.12);
+/* Zebra striping & hover baris */
+.bungkus-tabel tbody tr:nth-child(even) td,
+.bungkus-tabel tr:nth-child(even) td {
+  background-color: #fcfcfd;
+}
+
+.bungkus-tabel tr:hover td {
+  background-color: #f3f4f6;
+}
+
+/* Hilangkan garis bawah pada baris terakhir */
+.bungkus-tabel tr:last-child td {
+  border-bottom: none;
 }
