@@ -97,7 +97,7 @@ textarea.form-control {
 .btn-submit:active {
   transform: scale(0.99);
 }
-/* Notifikasi Sukses Tanpa JavaScript */
+
 .alert-checkbox {
   display: none;
 }
@@ -235,4 +235,57 @@ textarea.form-control {
 
 .btn-kembali:hover {
   background-color: #4B2E2B;
+}
+
+/* ===== Tambahan untuk tampil.php (tabel data) ===== */
+
+/* Kartu dilebarkan karena tabel punya 6 kolom (aslinya max 480px) */
+.form-card.form-card-lebar {
+  max-width: 960px;
+}
+
+/* Subjudul ada di dalam <header>, jadi tidak kena selector ".form-card > p" */
+.form-card header p {
+  color: #8C5A3C;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.tabel-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(192, 133, 82, 0.35);
+  border-radius: 10px;
+}
+
+.tabel-data {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabel-data th {
+  background-color: #8C5A3C;
+  color: #FFF8F0;
+  text-align: left;
+  font-weight: 600;
+  padding: 11px 14px;
+  white-space: nowrap;
+}
+
+.tabel-data td {
+  color: #4B2E2B;
+  padding: 11px 14px;
+  vertical-align: top;
+  border-top: 1px solid rgba(192, 133, 82, 0.25);
+}
+
+/* Baris selang-seling (baris 1 = header berisi <th>, jadi tidak terpengaruh) */
+.tabel-data tr:nth-child(odd) td {
+  background-color: #FFF8F0;
+}
+
+.tabel-data tr:hover td {
+  background-color: rgba(192, 133, 82, 0.12);
 }

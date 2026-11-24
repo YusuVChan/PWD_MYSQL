@@ -13,12 +13,7 @@ if (!$koneksi) {
     die("Koneksi gagal: " . htmlspecialchars(mysqli_connect_error()));
 } else {
 
-echo "Koneksi berhasilll ke database $database";
-
 mysqli_set_charset($koneksi, "utf8mb4");
-
-
-
 
 }
 

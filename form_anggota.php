@@ -8,12 +8,14 @@
 </head>
 <body>
 
-  <div class="form-card">
-    <h2>Data Anggota</h2>
-    <p>Silakan lengkapi seluruh informasi di bawah ini dengan benar.</p>
+  <main class="form-card">
+    <header>
+      <h2>Data Anggota</h2>
+      <p>Silakan lengkapi seluruh informasi di bawah ini dengan benar.</p>
+    </header>
 
     <?php if (isset($_GET["status"]) && $_GET["status"] === "sukses") { ?>
-      <div class="alert-wrapper">
+      <section class="alert-wrapper" aria-label="Notifikasi status">
         <input type="checkbox" id="tutup-alert" class="alert-checkbox">
         <div class="alert-sukses">
           <div class="alert-konten">
@@ -25,7 +27,7 @@
           </div>
           <label for="tutup-alert" class="alert-tutup" title="Tutup notifikasi">&times;</label>
         </div>
-      </div>
+      </section>
     <?php } ?>
 
     <form action="proses_anggota.php" method="POST">
@@ -99,7 +101,10 @@
 
       <button type="submit" class="btn-submit">Simpan Data</button>
     </form>
-  </div>
+    <form action="dashboard.php" method="POST">
+      <button type="submit" class="btn-submit">Kembali ke Dashboard</button>
+    </form>
+  </main>
 
 </body>
 </html>
