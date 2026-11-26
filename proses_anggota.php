@@ -4,55 +4,17 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit;
 }
 
-$no_anggota    = isset($_POST["no_anggota"])    ? trim($_POST["no_anggota"])    : "";
-$nama_lengkap  = isset($_POST["nama_lengkap"])  ? trim($_POST["nama_lengkap"])  : "";
-$email         = isset($_POST["email"])         ? trim($_POST["email"])         : "";
-$no_hp         = isset($_POST["no_hp"])         ? trim($_POST["no_hp"])         : "";
-$jenis_anggota = isset($_POST["jenis_anggota"]) ? trim($_POST["jenis_anggota"]) : "";
-$alamat        = isset($_POST["alamat"])        ? trim($_POST["alamat"])        : "";
+require_once "validasi_anggota.php";
 
-$daftar_jenis = array("Mahasiswa", "Dosen", "Tenaga Kependidikan");
-$errors       = array();
+$data          = ambil_input_anggota($_POST);
+$no_anggota    = $data["no_anggota"];
+$nama_lengkap  = $data["nama_lengkap"];
+$email         = $data["email"];
+$no_hp         = $data["no_hp"];
+$jenis_anggota = $data["jenis_anggota"];
+$alamat        = $data["alamat"];
 
-if (empty($no_anggota)) {
-    $errors[] = "Nomor anggota tidak boleh kosong.";
-} elseif (!ctype_digit($no_anggota)) {
-    $errors[] = "Nomor anggota hanya boleh berisi angka.";
-} elseif (strlen($no_anggota) > 15) {
-    $errors[] = "Nomor anggota maksimal 15 digit.";
-}
-
-if (empty($nama_lengkap)) {
-    $errors[] = "Nama lengkap tidak boleh kosong.";
-} elseif (strlen($nama_lengkap) > 100) {
-    $errors[] = "Nama lengkap maksimal 100 karakter.";
-}
-
-if (empty($email)) {
-    $errors[] = "Email tidak boleh kosong.";
-} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "Format email tidak valid.";
-} elseif (strlen($email) > 100) {
-    $errors[] = "Email maksimal 100 karakter.";
-}
-
-if (empty($no_hp)) {
-    $errors[] = "Nomor HP tidak boleh kosong.";
-} elseif (!ctype_digit($no_hp)) {
-    $errors[] = "Nomor HP hanya boleh berisi angka.";
-} elseif (strlen($no_hp) < 10 || strlen($no_hp) > 13) {
-    $errors[] = "Nomor HP harus 10 sampai 13 digit.";
-}
-
-if (empty($jenis_anggota)) {
-    $errors[] = "Jenis anggota wajib dipilih.";
-} elseif (!in_array($jenis_anggota, $daftar_jenis, true)) {
-    $errors[] = "Jenis anggota tidak valid.";
-}
-
-if (empty($alamat)) {
-    $errors[] = "Alamat tidak boleh kosong.";
-}
+$errors = validasi_data_anggota($data);
 
 $berhasil = false;
 $pesan_db = "";

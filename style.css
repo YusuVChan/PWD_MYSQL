@@ -283,9 +283,51 @@ textarea.form-control {
 }
 
 /* Kolom alamat diberi lebar lebih proporsional agar tidak terlalu tinggi ke bawah */
-.bungkus-tabel th:last-child,
-.bungkus-tabel td:last-child {
+.bungkus-tabel .kolom-alamat {
   min-width: 220px;
+}
+
+.bungkus-tabel .kolom-aksi {
+  width: 90px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.btn-edit {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #C08552;
+  color: #FFF8F0;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-edit:hover {
+  background-color: #8C5A3C;
+}
+
+.btn-edit:active {
+  transform: scale(0.98);
+}
+
+.btn-batal {
+  margin-top: 10px;
+  background-color: #FFF8F0;
+  color: #4B2E2B;
+  border: 1px solid rgba(192, 133, 82, 0.6);
+}
+
+.btn-batal:hover {
+  background-color: rgba(192, 133, 82, 0.15);
+}
+
+.tabel-kosong {
+  text-align: center;
+  color: #8C5A3C;
+  padding: 20px 14px;
 }
 
 /* Zebra striping & hover baris */
